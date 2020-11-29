@@ -50,7 +50,7 @@ class Megalinter:
             )
         )
         # User-defined rules location
-        self.linter_rules_path = self.github_workspace + os.path.sep + ".github/linters"
+        self.linter_rules_path = self.github_workspace+os.path.sep + ".github/linters"
 
         self.validate_all_code_base = True
         self.filter_regex_include = None
@@ -460,7 +460,7 @@ class Megalinter:
             self.report_folder + os.path.sep + config.get("LOG_FILE", "mega-linter.log")
         )
         if not os.path.isdir(os.path.dirname(log_file)):
-            os.makedirs(os.path.dirname(log_file))
+            os.makedirs(os.path.dirname(log_file), exist_ok=True)
         logging.basicConfig(
             force=True,
             level=logging_level,
